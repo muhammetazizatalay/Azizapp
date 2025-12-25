@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GorselOdev.AyarlarPage"
+             Title="Ayarlar"
+             BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}">
+
+    <VerticalStackLayout Padding="30" Spacing="25" VerticalOptions="Center">
+
+        <Label Text="Görünüm Ayarları" 
+               FontSize="26" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center"
+               TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+
+        <Frame HasShadow="True" 
+               BorderColor="{AppThemeBinding Light=#D1D1D1, Dark=#444}" 
+               BackgroundColor="{AppThemeBinding Light=#F9F9F9, Dark=#1E1E1E}"
+               Padding="20"
+               CornerRadius="15">
+
+            <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+                <Label Text="Koyu Tema Modu:" 
+                       VerticalOptions="Center" 
+                       FontSize="18"
+                       TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+
+                <Label x:Name="lblDurum" 
+                       Text="KAPALI" 
+                       VerticalOptions="Center" 
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       Style="{x:Null}" 
+                       TextColor="{AppThemeBinding Light=#2196F3, Dark=White}"/>
+
+                <Switch x:Name="ThemeSwitch" 
+                        Toggled="OnThemeToggled" 
+                        ThumbColor="{AppThemeBinding Light=White, Dark=#2196F3}"
+                        OnColor="#512BD4"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+    </VerticalStackLayout>
+</ContentPage>

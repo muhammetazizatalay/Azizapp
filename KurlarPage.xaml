@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GorselOdev.KurlarPage"
+             Title="Güncel Kurlar">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Yenile" Clicked="OnRefreshClicked" />
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="Auto, *" Padding="10">
+
+        <ActivityIndicator x:Name="LoadingIndicator"
+                           Grid.RowSpan="2"
+                           IsRunning="False"
+                           IsVisible="False"
+                           Color="#2196F3"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           ZIndex="1" />
+
+        <Grid Grid.Row="0" ColumnDefinitions="2*, *, *, *" BackgroundColor="{AppThemeBinding Light=#F0F0F0, Dark=#333}" Padding="10">
+            <Label Text="Döviz" FontAttributes="Bold" Grid.Column="0" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+            <Label Text="Alış" FontAttributes="Bold" Grid.Column="1" HorizontalOptions="Center" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+            <Label Text="Satış" FontAttributes="Bold" Grid.Column="2" HorizontalOptions="Center" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+            <Label Text="Değişim" FontAttributes="Bold" Grid.Column="3" HorizontalOptions="Center" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+        </Grid>
+
+        <CollectionView x:Name="lstKurlar" Grid.Row="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="2*, *, *, *" Padding="10">
+                        <Label Text="{Binding Code}" Grid.Column="0" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Label Text="{Binding Buying}" Grid.Column="1" HorizontalOptions="Center"/>
+                        <Label Text="{Binding Selling}" Grid.Column="2" HorizontalOptions="Center"/>
+                        <Label Text="{Binding Change}" Grid.Column="3" HorizontalOptions="Center" TextColor="DarkGreen"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

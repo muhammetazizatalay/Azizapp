@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GorselOdev.LoginPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="{AppThemeBinding Light=#FDF2E9, Dark=#1C1C24}" Offset="0.0" />
+                <GradientStop Color="{AppThemeBinding Light=#E3F2FD, Dark=#2C2C34}" Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <ScrollView VerticalOptions="Center">
+            <VerticalStackLayout Padding="40" Spacing="25" HorizontalOptions="Center" MaximumWidthRequest="800" WidthRequest="800">
+
+                <Image Source="user_group_icon.png"
+                       Aspect="AspectFit"
+                       HeightRequest="100"
+                       WidthRequest="100"
+                       HorizontalOptions="Center" />
+
+                <Label x:Name="TitleLabel"
+                       Text="SİSTEME GİRİŞ"
+                       FontSize="26"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="{AppThemeBinding Light=#333333, Dark=White}"
+                       CharacterSpacing="3"/>
+
+                <Frame CornerRadius="12" 
+                       Padding="25,5" 
+                       HasShadow="True" 
+                       HeightRequest="65" 
+                       BorderColor="Transparent"
+                       HorizontalOptions="Fill"
+                       BackgroundColor="{AppThemeBinding Light=White, Dark=#2A2A35}">
+                    <Grid ColumnDefinitions="Auto, *">
+                        <Image Grid.Column="0" Source="user_icon.png" HeightRequest="22" WidthRequest="22" VerticalOptions="Center" Margin="0,0,20,0" />
+                        <Entry Grid.Column="1" 
+                               x:Name="EmailEntry" 
+                               Placeholder="E-posta adresinizi veya kullanıcı adınızı giriniz" 
+                               Keyboard="Email"
+                               FontSize="16"
+                               VerticalOptions="Center" 
+                               TextColor="{AppThemeBinding Light=Black, Dark=White}" 
+                               PlaceholderColor="Gray"
+                               HorizontalOptions="Fill"/>
+                    </Grid>
+                </Frame>
+
+                <Frame CornerRadius="12" 
+                       Padding="25,5" 
+                       HasShadow="True" 
+                       HeightRequest="65" 
+                       BorderColor="Transparent"
+                       HorizontalOptions="Fill"
+                       BackgroundColor="{AppThemeBinding Light=White, Dark=#2A2A35}">
+                    <Grid ColumnDefinitions="Auto, *">
+                        <Image Grid.Column="0" Source="lock_icon.png" HeightRequest="22" WidthRequest="22" VerticalOptions="Center" Margin="0,0,20,0" />
+                        <Entry Grid.Column="1" 
+                               x:Name="PasswordEntry" 
+                               Placeholder="Şifrenizi giriniz" 
+                               IsPassword="True"
+                               FontSize="16"
+                               VerticalOptions="Center" 
+                               TextColor="{AppThemeBinding Light=Black, Dark=White}" 
+                               PlaceholderColor="Gray"
+                               HorizontalOptions="Fill"/>
+                    </Grid>
+                </Frame>
+
+                <Button x:Name="SubmitButton"
+                        Text="OTURUMU AÇ"
+                        BackgroundColor="#2196F3"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="18"   
+                        HeightRequest="60"
+                        CornerRadius="12" 
+                        HorizontalOptions="Fill"
+                        Clicked="OnSubmitClicked">
+                    <Button.Shadow>
+                        <Shadow Brush="#2196F3" Offset="0,6" Radius="10" Opacity="0.3"/>
+                    </Button.Shadow>
+                </Button>
+
+                <Button x:Name="SwitchButton"
+                        Text="Hesabınız yok mu? Hemen Kayıt Olun"
+                        BackgroundColor="Transparent"
+                        TextColor="{AppThemeBinding Light=#666666, Dark=#CCCCCC}"
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        Clicked="OnSwitchClicked"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

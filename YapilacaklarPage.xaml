@@ -1,0 +1,38 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GorselOdev.YapilacaklarPage"
+             Title="Yapılacaklar"
+             BackgroundColor="#F3F3F3">
+
+    
+
+    <Grid RowDefinitions="*">
+        <CollectionView x:Name="lstTodo" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10,5" Padding="15" HasShadow="True" BorderColor="#DDD">
+                        <Grid ColumnDefinitions="Auto, *, Auto" RowDefinitions="Auto, Auto">
+                            <CheckBox Grid.RowSpan="2" IsChecked="{Binding Tamamlandi}" VerticalOptions="Center" />
+
+                            <VerticalStackLayout Grid.Column="1" Margin="10,0">
+                                <Label Text="{Binding Baslik}" FontAttributes="Bold" FontSize="18" />
+                                <Label Text="{Binding Detay}" FontSize="14" TextColor="Gray" />
+                                <Label Text="{Binding Tarih, StringFormat='{0} {1}'}" FontSize="12" TextColor="Silver" />
+                            </VerticalStackLayout>
+
+                            <HorizontalStackLayout Grid.Column="2" Grid.RowSpan="2" Spacing="5" VerticalOptions="Center">
+                                <Button Text="✎" Clicked="DuzenleClicked" CommandParameter="{Binding .}" WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="Blue" />
+                                <Button Text="X" Clicked="SilClicked" CommandParameter="{Binding .}" WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="Red" />
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="+" Clicked="EkleClicked" 
+                VerticalOptions="End" HorizontalOptions="End"
+                Margin="20" WidthRequest="60" HeightRequest="60" 
+                CornerRadius="30" FontSize="30" BackgroundColor="Purple" TextColor="White" />
+    </Grid>
+</ContentPage>
